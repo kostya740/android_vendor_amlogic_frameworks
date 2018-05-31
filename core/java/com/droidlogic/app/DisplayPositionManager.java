@@ -143,6 +143,45 @@ public class DisplayPositionManager {
         } else if (mode.contains(OutputModeManager.HDMI_SMPTE)) {
             mMaxRight = 4095;
             mMaxBottom = 2159;
+        } else if (mode.contains(OutputModeManager.HDMI_640_480)) {
+            mMaxRight = 639;
+            mMaxBottom = 479;
+        } else if (mode.contains(OutputModeManager.HDMI_800_480)) {
+            mMaxRight = 799;
+            mMaxBottom = 479;
+        } else if (mode.contains(OutputModeManager.HDMI_800_600)) {
+            mMaxRight = 799;
+            mMaxBottom = 599;
+        } else if (mode.contains(OutputModeManager.HDMI_1024_600)) {
+            mMaxRight = 1023;
+            mMaxBottom = 599;
+        } else if (mode.contains(OutputModeManager.HDMI_1024_768)) {
+            mMaxRight = 1023;
+            mMaxBottom = 767;
+        } else if (mode.contains(OutputModeManager.HDMI_1280_800)) {
+            mMaxRight = 1279;
+            mMaxBottom = 799;
+        } else if (mode.contains(OutputModeManager.HDMI_1280_1024)) {
+            mMaxRight = 1279;
+            mMaxBottom = 1023;
+        } else if (mode.contains(OutputModeManager.HDMI_1360_768)) {
+            mMaxRight = 1359;
+            mMaxBottom = 767;
+        } else if (mode.contains(OutputModeManager.HDMI_1366_768)) {
+            mMaxRight = 1365;
+            mMaxBottom = 767;
+        } else if (mode.contains(OutputModeManager.HDMI_1440_900)) {
+            mMaxRight = 1439;
+            mMaxBottom = 899;
+        } else if (mode.contains(OutputModeManager.HDMI_1600_900)) {
+            mMaxRight = 1599;
+            mMaxBottom = 899;
+        } else if (mode.contains(OutputModeManager.HDMI_1600_1200)) {
+            mMaxRight = 1599;
+            mMaxBottom = 1199;
+        } else if (mode.contains(OutputModeManager.HDMI_1920_1200)) {
+            mMaxRight = 1919;
+            mMaxBottom = 1199;
         } else {
             mMaxRight = 1919;
             mMaxBottom = 1079;

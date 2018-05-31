@@ -101,6 +101,7 @@ using namespace android;
 
 #define DISPLAY_HPD_STATE               "/sys/class/amhdmitx/amhdmitx0/hpd_state"
 #define DISPLAY_HDMI_EDID               "/sys/class/amhdmitx/amhdmitx0/disp_cap"//RX support display mode
+#define DISPLAY_HDMI_VGA_EDID           "/sys/class/amhdmitx/amhdmitx0/vesa_cap" //RX support display mode
 #define DISPLAY_HDMI_DISP_CAP_3D        "/sys/class/amhdmitx/amhdmitx0/disp_cap_3d"//RX support display 3d mode
 #define DISPLAY_HDMI_DEEP_COLOR         "/sys/class/amhdmitx/amhdmitx0/dc_cap"//RX supoort deep color
 #define DISPLAY_HDMI_HDR                "/sys/class/amhdmitx/amhdmitx0/hdr_cap"
@@ -242,6 +243,32 @@ using namespace android;
 #define FULL_HEIGHT_4K2K                2160
 #define FULL_WIDTH_4K2KSMPTE            4096
 #define FULL_HEIGHT_4K2KSMPTE           2160
+#define FULL_WIDTH_640_480              640
+#define FULL_HEIGHT_640_480             480
+#define FULL_WIDTH_800_480              800
+#define FULL_HEIGHT_800_480             480
+#define FULL_WIDTH_800_600              800
+#define FULL_HEIGHT_800_600             600
+#define FULL_WIDTH_1024_600             1024
+#define FULL_HEIGHT_1024_600            600
+#define FULL_WIDTH_1024_768             1024
+#define FULL_HEIGHT_1024_768            768
+#define FULL_WIDTH_1280_800             1280
+#define FULL_HEIGHT_1280_800            800
+#define FULL_WIDTH_1280_1024            1280
+#define FULL_HEIGHT_1280_1024           1024
+#define FULL_WIDTH_1360_768             1360
+#define FULL_HEIGHT_1360_768            768
+#define FULL_WIDTH_1366_768             1366
+#define FULL_HEIGHT_1366_768            768
+#define FULL_WIDTH_1440_900             1440
+#define FULL_HEIGHT_1440_900            900
+#define FULL_WIDTH_1600_900             1600
+#define FULL_HEIGHT_1600_900            900
+#define FULL_WIDTH_1600_1200            1600
+#define FULL_HEIGHT_1600_1200           1200
+#define FULL_WIDTH_1920_1200            1920
+#define FULL_HEIGHT_1920_1200           1200
 
 enum {
     EVENT_OUTPUT_MODE_CHANGE            = 0,
@@ -279,6 +306,19 @@ enum {
 #define MODE_4K2KSMPTE30HZ              "smpte30hz"
 #define MODE_4K2KSMPTE50HZ              "smpte50hz"
 #define MODE_4K2KSMPTE60HZ              "smpte60hz"
+#define MODE_640_480P                   "640x480p60hz"
+#define MODE_800_480P                   "800x480p60hz"
+#define MODE_800_600P                   "800x600p60hz"
+#define MODE_1024_600P                  "1024x600p60hz"
+#define MODE_1024_768P                  "1024x768p60hz"
+#define MODE_1280_800P                  "1280x800p60hz"
+#define MODE_1280_1024P                 "1280x1024p60hz"
+#define MODE_1360_768P                  "1360x768p60hz"
+#define MODE_1366_768P                  "1366x768p60hz"
+#define MODE_1440_900P                  "1440x900p60hz"
+#define MODE_1600_900P                  "1600x900p60hz"
+#define MODE_1600_1200P                 "1600x1200p60hz"
+#define MODE_1920_1200P                 "1920x1200p60hz"
 
 #define MODE_480I_PREFIX                "480i"
 #define MODE_480P_PREFIX                "480p"
@@ -290,6 +330,19 @@ enum {
 #define MODE_1080P_PREFIX               "1080p"
 #define MODE_4K2K_PREFIX                "2160p"
 #define MODE_4K2KSMPTE_PREFIX           "smpte"
+#define MODE_640_480P_PREFIX            "640x480p60hz"
+#define MODE_800_480P_PREFIX            "800x480p60hz"
+#define MODE_800_600P_PREFIX            "800x600p60hz"
+#define MODE_1024_600P_PREFIX           "1024x600p60hz"
+#define MODE_1024_768P_PREFIX           "1024x768p60hz"
+#define MODE_1280_800P_PREFIX           "1280x800p60hz"
+#define MODE_1280_1024P_PREFIX          "1280x1024p60hz"
+#define MODE_1360_768P_PREFIX           "1360x768p60hz"
+#define MODE_1366_768P_PREFIX           "1366x768p60hz"
+#define MODE_1440_900P_PREFIX           "1440x900p60hz"
+#define MODE_1600_900P_PREFIX           "1600x900p60hz"
+#define MODE_1600_1200P_PREFIX          "1600x1200p60hz"
+#define MODE_1920_1200P_PREFIX          "1920x1200p60hz"
 
 enum {
     DISPLAY_MODE_480I                   = 0,
@@ -398,6 +451,7 @@ public:
     static void* bootanimDetect(void *data);
     static void* bootvideoDetect(void *data);
 
+    void fbset(int width, int height, int bits);
     void setSourceDisplay(output_mode_state state);
 
     void setVideoPlayingAxis();

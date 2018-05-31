@@ -63,6 +63,7 @@ public class OutputModeManager {
 
     public static final String HDMI_STATE                   = "/sys/class/amhdmitx/amhdmitx0/hpd_state";
     public static final String HDMI_SUPPORT_LIST            = "/sys/class/amhdmitx/amhdmitx0/disp_cap";
+    public static final String HDMI_VGA_SUPPORT_LIST        = "/sys/class/amhdmitx/amhdmitx0/vesa_cap";
     public static final String HDMI_COLOR_SUPPORT_LIST      = "/sys/class/amhdmitx/amhdmitx0/dc_cap";
 
     public static final String COLOR_ATTRIBUTE              = "/sys/class/amhdmitx/amhdmitx0/attr";
@@ -144,6 +145,20 @@ public class OutputModeManager {
     public static final String HDMI_1080                    = "1080";
     public static final String HDMI_4K2K                    = "2160p";
     public static final String HDMI_SMPTE                   = "smpte";
+
+    public static final String HDMI_640_480                 = "640x480";
+    public static final String HDMI_800_480                 = "800x480";
+    public static final String HDMI_800_600                 = "800x600";
+    public static final String HDMI_1024_600                = "1024x600";
+    public static final String HDMI_1024_768                = "1024x768";
+    public static final String HDMI_1280_800                = "1280x800";
+    public static final String HDMI_1280_1024               = "1280x1024";
+    public static final String HDMI_1360_768                = "1360x768";
+    public static final String HDMI_1366_768                = "1366x768";
+    public static final String HDMI_1440_900                = "1440x900";
+    public static final String HDMI_1600_900                = "1600x900";
+    public static final String HDMI_1600_1200               = "1600x1200";
+    public static final String HDMI_1920_1200               = "1920x1200";
 
     private String DEFAULT_OUTPUT_MODE                      = "720p60hz";
     private String DEFAULT_COLOR_ATTRIBUTE                  = "444,8bit";
@@ -286,8 +301,9 @@ public class OutputModeManager {
     }
 
     public String getHdmiSupportList() {
-        String list = readSupportList(HDMI_SUPPORT_LIST).replaceAll("[*]", "");
-
+        String list1 = readSupportList(HDMI_SUPPORT_LIST).replaceAll("[*]", "");
+        String list2 = readSupportList(HDMI_VGA_SUPPORT_LIST);
+        String list = list1 + list2;
         if (DEBUG)
             Log.d(TAG, "getHdmiSupportList :" + list);
         return list;
